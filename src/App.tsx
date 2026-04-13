@@ -1,14 +1,17 @@
 import { BrowserRouter } from 'react-router-dom';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { TechniqueShowcase } from './components/TechniqueShowcase';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import TechniqueShowcase from './components/TechniqueShowcase';
+import './components/header.css';
+import './components/footer.css';
+import './components/showcase.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#0a0a0b] flex flex-col">
+      <div className="arteur-app">
         <Header />
-        <main className="flex-1 pt-20">
+        <main className="arteur-main">
           <TechniqueShowcase />
         </main>
         <Footer />

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface CarShowcase {
   id: string;
@@ -32,39 +33,37 @@ const cars: CarShowcase[] = [
   },
 ];
 
-export function TechniqueShowcase() {
+export default function TechniqueShowcase() {
   const [activeCar, setActiveCar] = useState(0);
   const [sliderPosition, setSliderPosition] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isDragging = useRef(false);
 
-  const handleMouseDown = () => {
-    isDragging.current = true;
-  };
-
-  const handleMouseUp = () => {
-    isDragging.current = false;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent | React.TouchEvent) => {
-    if (!isDragging.current || !containerRef.current) return;
-    
-    const container = containerRef.current;
-    const rect = container.getBoundingClientRect();
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+  const handleMove = (clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
     const x = clientX - rect.left;
     const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
     setSliderPosition(percentage);
   };
 
+  const handleMouseDown = () => setIsDragging(true);
+  const handleMouseUp = () => setIsDragging(false);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    handleMove(e.clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    handleMove(e.touches[0].clientX);
+  };
+
   useEffect(() => {
-    const handleGlobalMouseUp = () => {
-      isDragging.current = false;
-    };
-    
+    const handleGlobalMouseUp = () => setIsDragging(false);
     window.addEventListener('mouseup', handleGlobalMouseUp);
     window.addEventListener('touchend', handleGlobalMouseUp);
-    
     return () => {
       window.removeEventListener('mouseup', handleGlobalMouseUp);
       window.removeEventListener('touchend', handleGlobalMouseUp);
@@ -72,84 +71,98 @@ export function TechniqueShowcase() {
   }, []);
 
   return (
-    <section className="section-padding bg-[#0a0a0b]">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="font-heading text-4xl md:text-5xl text-[#E9E4D0] text-center mb-4">
-          VITRINE TÉCNICA
-        </h2>
-        <p className="text-[#E9E4D0]/60 text-center mb-16 max-w-2xl mx-auto">
-          Transformação completa: antes e depois do detalhamento profissional
-        </p>
+    <section id="showcase" className="arteur-showcase">
+      <div className="arteur-showcase__container">
+        
+        <motion.div 
+          className="arteur-showcase__header"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className="arteur-showcase__label">SEÇÃO TÉCNICA</span>
+          <h1 className="arteur-showcase__title">
+            VITRINE TÉCNICA
+          </h1>
+          <p className="arteur-showcase__subtitle">
+            Transformação completa: antes e depois do detalhamento profissional
+          </p>
+        </motion.div>
 
-        <div className="mb-12 flex justify-center gap-4">
+        <div className="arteur-showcase__tabs">
           {cars.map((car, index) => (
             <button
               key={car.id}
               onClick={() => setActiveCar(index)}
-              className={`btn-arteur ${activeCar === index ? 'bg-[#E9E4D0] text-[#0a0a0b]' : ''}`}
+              className={`arteur-showcase__tab ${activeCar === index ? 'active' : ''}`}
             >
               {car.name}
             </button>
           ))}
         </div>
 
-        <div 
+        <motion.div 
           ref={containerRef}
-          className="relative aspect-[16/9] overflow-hidden cursor-ew-resize select-none"
+          className="arteur-showcase__slider"
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
           onTouchStart={handleMouseDown}
           onTouchEnd={handleMouseUp}
-          onTouchMove={handleMouseMove}
+          onTouchMove={handleTouchMove}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="absolute inset-0">
-            <img 
-              src={cars[activeCar].afterImage} 
-              alt={`${cars[activeCar].name} - Depois`}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
-          
-          <div 
-            className="absolute inset-0 overflow-hidden"
-            style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
-          >
-            <img 
-              src={cars[activeCar].beforeImage} 
-              alt={`${cars[activeCar].name} - Antes`}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
+          <div className="arteur-showcase__slider-wrapper">
+            <div className="arteur-showcase__image-container">
+              <img 
+                src={cars[activeCar].afterImage} 
+                alt={`${cars[activeCar].name} - Depois`}
+                className="arteur-showcase__image"
+              />
+              <div className="arteur-showcase__label-overlay arteur-showcase__label-overlay--after">
+                DEPOIS
+              </div>
+            </div>
+            
+            <motion.div 
+              className="arteur-showcase__image-container arteur-showcase__image-container--before"
+              style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+            >
+              <img 
+                src={cars[activeCar].beforeImage} 
+                alt={`${cars[activeCar].name} - Antes`}
+                className="arteur-showcase__image"
+              />
+              <div className="arteur-showcase__label-overlay arteur-showcase__label-overlay--before">
+                ANTES
+              </div>
+            </motion.div>
 
-          <div 
-            className="absolute top-0 bottom-0 w-1 bg-[#E9E4D0] cursor-ew-resize"
-            style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
-          >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-[#E9E4D0] rounded-full flex items-center justify-center">
-              <div className="flex gap-0.5">
-                <span className="w-0.5 h-3 bg-[#0a0a0b]"></span>
-                <span className="w-0.5 h-3 bg-[#0a0a0b]"></span>
+            <div 
+              className="arteur-showcase__divider"
+              style={{ left: `${sliderPosition}%` }}
+            >
+              <div className="arteur-showcase__divider-handle">
+                <span className="arteur-showcase__divider-line"></span>
+                <span className="arteur-showcase__divider-line"></span>
               </div>
             </div>
           </div>
+        </motion.div>
 
-          <div className="absolute bottom-4 left-4 bg-[#0a0a0b]/80 px-4 py-2">
-            <span className="text-xs uppercase tracking-widest text-[#E9E4D0]">Antes</span>
-          </div>
-          <div className="absolute bottom-4 right-4 bg-[#E9E4D0]/20 px-4 py-2">
-            <span className="text-xs uppercase tracking-widest text-[#E9E4D0]">Depois</span>
-          </div>
-        </div>
+        <motion.div 
+          className="arteur-showcase__info"
+          key={cars[activeCar].id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="arteur-showcase__car-name">{cars[activeCar].name}</h2>
+          <p className="arteur-showcase__car-description">{cars[activeCar].description}</p>
+        </motion.div>
 
-        <div className="text-center mt-8">
-          <h3 className="font-heading text-2xl text-[#E9E4D0] mb-2">
-            {cars[activeCar].name}
-          </h3>
-          <p className="text-[#E9E4D0]/60">
-            {cars[activeCar].description}
-          </p>
-        </div>
       </div>
     </section>
   );

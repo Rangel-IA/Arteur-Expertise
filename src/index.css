@@ -1,18 +1,28 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 @theme {
-  --color-arteur-bg: #0a0a0b;
   --color-arteur-cream: #E9E4D0;
-  --color-arteur-gold: #C9A962;
+  --color-arteur-cream-dim: rgba(233, 228, 208, 0.55);
+  --color-arteur-ink: #0a0a0b;
+  --color-arteur-white: #ffffff;
   
-  --font-heading: 'Cormorant Garamond', serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', Helvetica Neue, sans-serif;
 }
 
 :root {
-  --arteur-bg: #0a0a0b;
   --arteur-cream: #E9E4D0;
+  --arteur-cream-dim: rgba(233, 228, 208, 0.55);
+  --arteur-ink: #0a0a0b;
+  --arteur-white: #ffffff;
+  
+  --hero-font-display: 'Cormorant Garamond', Georgia, serif;
+  --hero-font-body: 'DM Sans', Helvetica Neue, sans-serif;
+  
+  --cta-primary-bg: #E9E4D0;
+  --cta-primary-hover: #ffffff;
+  --cta-primary-text: #0a0a0b;
 }
 
 * {
@@ -26,7 +36,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', Helvetica Neue, sans-serif;
   background-color: #0a0a0b;
   color: #E9E4D0;
   line-height: 1.6;
@@ -35,36 +45,74 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 500;
   line-height: 1.2;
 }
 
-.btn-arteur {
+.arteur-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 32px;
-  background: transparent;
-  border: 1px solid #E9E4D0;
-  color: #E9E4D0;
+  padding: 1rem 2rem;
+  background: #E9E4D0;
+  color: #0a0a0b;
   font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  border: none;
+  border-radius: 0;
 }
 
-.btn-arteur:hover {
-  background: #E9E4D0;
-  color: #0a0a0b;
+.arteur-btn:hover {
+  background: #ffffff;
+  transform: translateX(4px);
 }
 
-.btn-arteur-secondary {
+.arteur-btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.arteur-btn-ghost:hover {
+  background: transparent;
+  border: 1px solid #ffffff;
+  transform: translateX(4px);
+}
+
+.arteur-link {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.65rem;
   letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.arteur-link:hover {
+  color: #ffffff;
+}
+
+.arteur-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.arteur-link:hover::after {
+  width: 100%;
 }
 
 .section-padding {
@@ -74,5 +122,45 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .section-padding {
     padding: 80px 16px;
+  }
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.arteur-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.arteur-main {
+  flex: 1;
+}
+
+.md-hidden {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .md-hidden {
+    display: none;
+  }
+  
+  .md-only {
+    display: inline-flex;
   }
 }

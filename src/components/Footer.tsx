@@ -1,19 +1,37 @@
-import { Link } from 'react-router-dom';
-
-export function Footer() {
+export default function Footer() {
   return (
-    <footer className="border-t border-[#E9E4D0]/10 py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <Link to="/" className="font-heading text-2xl text-[#E9E4D0] tracking-wider">
-            ARTEUR
-          </Link>
-          <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-[#E9E4D0]/60">
-            <span>© 2026 Arteur. Todos os direitos reservados.</span>
+    <footer className="arteur-footer">
+      <div className="arteur-footer__container">
+        <div className="arteur-footer__main">
+          
+          <div className="arteur-footer__col-brand">
+            <span className="arteur-footer__logo">ARTEUR</span>
+            <p className="arteur-footer__tagline">
+              Especialistas em detail e restauro de alta performance.
+            </p>
           </div>
-          <a href="https://arteur-cars.vercel.app" className="btn-arteur btn-arteur-secondary" target="_blank" rel="noopener noreferrer">
-            Home
-          </a>
+
+          <nav className="arteur-footer__col-nav">
+            <h4 className="arteur-footer__col-label">Navegação</h4>
+            <ul className="arteur-footer__nav-list">
+              <li><a href="#showcase">Vitrine</a></li>
+              <li><a href="#technique">Técnica</a></li>
+              <li><a href="https://arteur-cars.vercel.app" target="_blank" rel="noopener noreferrer">Home</a></li>
+            </ul>
+          </nav>
+
+        </div>
+
+        <div className="arteur-footer__bottom">
+          <div className="arteur-footer__divider" />
+          <div className="arteur-footer__bottom-content">
+            <p className="arteur-footer__copyright">
+              © {new Date().getFullYear()} ARTEUR — Todos os direitos reservados.
+            </p>
+            <a href="https://arteur-cars.vercel.app" className="arteur-footer__cta" target="_blank" rel="noopener noreferrer">
+              HOME
+            </a>
+          </div>
         </div>
       </div>
     </footer>

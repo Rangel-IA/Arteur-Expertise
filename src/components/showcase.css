@@ -1,0 +1,207 @@
+.arteur-showcase {
+  padding: 160px 0 120px;
+  min-height: 100vh;
+}
+
+.arteur-showcase__container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 6vw, 4rem);
+}
+
+.arteur-showcase__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.arteur-showcase__label {
+  display: inline-block;
+  font-family: var(--hero-font-body, sans-serif);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--arteur-cream, #E9E4D0);
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.arteur-showcase__title {
+  font-family: var(--hero-font-display, serif);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: var(--arteur-cream, #E9E4D0);
+  margin-bottom: 1.5rem;
+}
+
+.arteur-showcase__subtitle {
+  font-family: var(--hero-font-body, sans-serif);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+}
+
+.arteur-showcase__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.arteur-showcase__tab {
+  font-family: var(--hero-font-body, sans-serif);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arteur-showcase__tab:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.arteur-showcase__tab.active {
+  background: var(--arteur-cream, #E9E4D0);
+  color: #0a0a0b;
+  border-color: var(--arteur-cream, #E9E4D0);
+}
+
+.arteur-showcase__slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 80vh;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+}
+
+.arteur-showcase__slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.arteur-showcase__image-container {
+  position: absolute;
+  inset: 0;
+}
+
+.arteur-showcase__image-container--before {
+  position: absolute;
+  inset: 0;
+}
+
+.arteur-showcase__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.arteur-showcase__label-overlay {
+  position: absolute;
+  bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--hero-font-body, sans-serif);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.arteur-showcase__label-overlay--before {
+  left: 1.5rem;
+  background: rgba(10, 10, 11, 0.8);
+  color: #ffffff;
+}
+
+.arteur-showcase__label-overlay--after {
+  right: 1.5rem;
+  background: var(--arteur-cream, #E9E4D0);
+  color: #0a0a0b;
+}
+
+.arteur-showcase__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--arteur-cream, #E9E4D0);
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.arteur-showcase__divider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: var(--arteur-cream, #E9E4D0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.arteur-showcase__divider-line {
+  width: 2px;
+  height: 16px;
+  background: #0a0a0b;
+}
+
+.arteur-showcase__info {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.arteur-showcase__car-name {
+  font-family: var(--hero-font-display, serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--arteur-cream, #E9E4D0);
+  margin-bottom: 0.75rem;
+}
+
+.arteur-showcase__car-description {
+  font-family: var(--hero-font-body, sans-serif);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .arteur-showcase {
+    padding: 120px 0 80px;
+  }
+  
+  .arteur-showcase__tabs {
+    gap: 0.25rem;
+  }
+  
+  .arteur-showcase__tab {
+    padding: 0.75rem 1rem;
+    font-size: 0.55rem;
+  }
+  
+  .arteur-showcase__divider-handle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .arteur-showcase__divider-line {
+    height: 12px;
+  }
+}
