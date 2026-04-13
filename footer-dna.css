@@ -9,6 +9,9 @@
   padding: clamp(4rem, 10vh, 10rem) 0 4rem;
   overflow: hidden;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .arteur-footer__watermark {
@@ -64,17 +67,17 @@
 
 .arteur-footer__tagline {
   font-family: var(--hero-font-display, serif);
-  font-size: 1.25rem;
+  font-size: 1.28rem;
   line-height: 1.4;
   color: #1a1a1a; /* Dark Graphite */
-  font-weight: 400;
+  font-weight: 500;
   font-style: italic;
 }
 
 .arteur-footer__col-label {
-  font-family: var(--hero-font-body, sans-serif);
+  font-family: var(--hero-font-display, serif);
   font-size: 0.6rem;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.3em;
   color: #1a1a1a;
@@ -84,8 +87,8 @@
 
 .arteur-footer__about-text {
   font-family: var(--hero-font-body, sans-serif);
-  font-size: 0.95rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
   line-height: 1.8;
   color: #333333;
   text-align: justify;
