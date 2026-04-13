@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "computedHash": "b3db97a3e01d0e41a53f1e0d169aa34d9a6c520521731359042d5fbc0bdd315f"
+    },
+    "github-project-management": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "computedHash": "4f06eb00affd5c1c98b408caebbea08e0717cee0064abd9601f803ca4145f8f5"
+    },
+    "microcopy": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "computedHash": "86cae918295c50d82b90437772fa37746ab47e336f4da2cc4a0972caa563c15a"
+    }
+  }
+}

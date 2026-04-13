@@ -19,10 +19,6 @@
   
   --hero-font-display: 'Cormorant Garamond', Georgia, serif;
   --hero-font-body: 'DM Sans', Helvetica Neue, sans-serif;
-  
-  --cta-primary-bg: #E9E4D0;
-  --cta-primary-hover: #ffffff;
-  --cta-primary-text: #0a0a0b;
 }
 
 * {
@@ -42,103 +38,13 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.2;
-}
-
-.arteur-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2rem;
-  background: #E9E4D0;
-  color: #0a0a0b;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
-  border: none;
-  border-radius: 0;
-}
-
-.arteur-btn:hover {
-  background: #ffffff;
-  transform: translateX(4px);
-}
-
-.arteur-btn-ghost {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-.arteur-btn-ghost:hover {
-  background: transparent;
-  border: 1px solid #ffffff;
-  transform: translateX(4px);
-}
-
-.arteur-link {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.arteur-link:hover {
-  color: #ffffff;
-}
-
-.arteur-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: #ffffff;
-  transition: width 0.3s ease;
-}
-
-.arteur-link:hover::after {
-  width: 100%;
-}
-
-.section-padding {
-  padding: 120px 24px;
-}
-
-@media (max-width: 768px) {
-  .section-padding {
-    padding: 80px 16px;
-  }
-}
-
-.hero-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-}
-
-.hero-subtitle {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .arteur-app {
@@ -149,18 +55,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .arteur-main {
   flex: 1;
-}
-
-.md-hidden {
-  display: block;
+  padding-top: 100px;
 }
 
 @media (min-width: 1024px) {
-  .md-hidden {
-    display: none;
-  }
-  
-  .md-only {
-    display: inline-flex;
-  }
+  .md-only { display: flex; }
+  .md-hidden { display: none; }
+}
+
+@media (max-width: 1023px) {
+  .md-only { display: none; }
+  .md-hidden { display: block; }
 }

@@ -4,15 +4,15 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 2.5rem 0;
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 2rem 0;
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .arteur-header.is-scrolled {
-  padding: 1.25rem 0;
-  background-color: rgba(10, 10, 11, 0.75);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem 0;
+  background-color: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .arteur-header__container {
@@ -31,9 +31,9 @@
 
 .arteur-header__logo {
   font-family: var(--hero-font-display, serif);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   color: var(--arteur-cream, #E9E4D0);
   transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -41,7 +41,7 @@
 .arteur-header__nav {
   display: none;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
 @media (min-width: 1024px) {
@@ -53,14 +53,14 @@
 .arteur-header__link {
   position: relative;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.35);
   font-family: var(--hero-font-body, sans-serif);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 500;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   padding: 0.5rem 0;
-  transition: color 0.4s ease;
+  transition: color 0.5s ease;
 }
 
 .arteur-header__link:hover {
@@ -76,7 +76,7 @@
   background: var(--arteur-cream, #E9E4D0);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .arteur-header__link:hover .link-line {
@@ -89,11 +89,11 @@
   font-family: var(--hero-font-body, sans-serif);
   font-size: 0.55rem;
   font-weight: 600;
-  letter-spacing: 0.3em;
-  color: #ffffff;
-  padding: 0.9rem 1.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.4s ease;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s ease;
 }
 
 .arteur-header__cta:hover {
@@ -105,7 +105,7 @@
 .arteur-header__mobile-trigger {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -142,7 +142,7 @@
   right: 2rem;
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
   z-index: 10;
 }
@@ -150,7 +150,7 @@
 .arteur-mobile-menu__nav {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.5rem;
   padding: 0 2rem;
   width: 100%;
   max-width: 500px;
@@ -159,24 +159,24 @@
 .arteur-mobile-menu__link {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   text-decoration: none;
   color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   padding-bottom: 1rem;
 }
 
 .link-index {
   font-family: var(--hero-font-display, serif);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-style: italic;
   color: var(--arteur-cream, #E9E4D0);
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .link-label {
   font-family: var(--hero-font-display, serif);
-  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-size: clamp(2rem, 8vw, 3rem);
   font-weight: 300;
 }
 
@@ -186,15 +186,15 @@
 
 .arteur-mobile-menu__footer p {
   font-family: var(--hero-font-body, sans-serif);
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.15);
   margin-bottom: 1rem;
 }
 
 .footer-line {
-  width: 40px;
+  width: 30px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
