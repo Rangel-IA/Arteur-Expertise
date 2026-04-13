@@ -1,3 +1,5 @@
+import logoFooter from '../assets/logo_footer.png';
+
 export default function Footer() {
   return (
     <footer className="arteur-footer">
@@ -5,7 +7,7 @@ export default function Footer() {
       <div className="arteur-footer__container">
         <div className="arteur-footer__main">
           <div className="arteur-footer__col-brand">
-            <img src="/assets/logo_footer.png" alt="ARTEUR" className="arteur-footer__logo" />
+            <img src={logoFooter} alt="ARTEUR" className="arteur-footer__logo" />
             <p className="arteur-footer__tagline">
               Boutique de produção visual de <br /> elite para marcas extraordinárias.
             </p>
