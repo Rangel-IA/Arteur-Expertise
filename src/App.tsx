@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import TechniqueShowcase from './components/TechniqueShowcase';
 import './components/header.css';
-import './components/footer.css';
+import '../footer-dna.css';
 import './components/showcase.css';
 
 function App() {
