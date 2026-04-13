@@ -37,12 +37,14 @@ const cars: CarShowcase[] = [
   },
 ];
 
+const arteurEase = [0.22, 1, 0.36, 1] as const;
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] as any }
+    transition: { duration: 1.2, ease: arteurEase }
   }
 };
 
@@ -129,7 +131,7 @@ export default function TechniqueShowcase() {
         className="arteur-gallery__slider-container"
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as any }}
+        transition={{ duration: 1, ease: arteurEase }}
       >
         <div 
           ref={containerRef}
@@ -183,7 +185,7 @@ export default function TechniqueShowcase() {
           key={cars[activeCar].id}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
+          transition={{ duration: 0.8, ease: arteurEase }}
         >
           <h2 className="arteur-gallery__car-name">{cars[activeCar].name}</h2>
           <div className="arteur-gallery__car-info">
