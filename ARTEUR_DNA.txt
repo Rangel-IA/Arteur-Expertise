@@ -1,0 +1,151 @@
+================================================================================
+ARTEUR DNA VISUAL - Design System Documentation
+================================================================================
+
+================================================================================
+1. TAILWIND CONFIGURATION
+================================================================================
+
+O projeto usa Tailwind CSS v4 (v4.1.12) com configuração mínima em vite.config.ts.
+Não há archivo tailwind.config.js tradicional - a configuração está inline no CSS.
+
+Configuração em vite.config.ts:
+- tailwindcss() plugin
+- react() plugin
+- figmaAssetPlugin() para resolver imports 'figma:asset/'
+
+================================================================================
+2. CORES (CSS Variables - theme.css)
+================================================================================
+
+PALETTE PRINCIPAL:
+--arteur-cream: #E9E4D0          (Dourado/aureo - cor de destaque)
+--arteur-cream-dim: rgba(233, 228, 208, 0.55)  (versao desaturada)
+--arteur-ink: #0a0a0b            (Preto/cinza escuro - background)
+--arteur-white: #ffffff          (Branco - texto)
+
+PALETTE RADIENT:
+--primary: #030213               (Azul muito escuro)
+--background: oklch(0.145 0 0) / #0a0a0b (dark mode)
+--foreground: oklch(0.985 0 0)   / #ffffff
+
+================================================================================
+3. FONTES
+================================================================================
+
+FONTES USADAS (Google Fonts):
+
+1. Cormorant Garamond (Display/Títulos)
+   - Pesos: 300, 400, 500, 600, 700, 400i
+   - Uso: Títulos principais (hero, h1, h2)
+   - Fallback: Georgia, serif
+
+2. DM Sans (Corpo/Texto)
+   - Pesos: 300, 400, 500, 600
+   - Uso: Texto corrido, botões, navegação
+   - Fallback: Helvetica Neue, sans-serif
+
+OBS: O import em fonts.css ainda menciona "Inter" mas NÃO está em uso.
+As variáveis do projeto apontam para Cormorant Garamond + DM Sans.
+
+Import atual (fonts.css):
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+FALTA CORRIGIR: Trocar "Inter" por "DM Sans" no import acima.
+
+================================================================================
+4. ESTRUTURA DE COMPONENTES
+================================================================================
+
+PASTA: src/app/components/
+
+Headers & Navigation:
+- Header.tsx + header.css
+  * Fixed position
+  * Glassmorphism when scrolled (blur + rgba background)
+  * Logo + Desktop Nav + Mobile Menu
+  * Links: O Método (#manifesto), A Dupla (#fundadores), Portfólio (#portifolio)
+  * CTA: Qualifique Sua Marca (#aplicacao)
+
+Footer:
+- Footer.tsx + footer.css
+  * 3 colunas: Navegação, Contato, Localização
+  * Logo + direitos autorais
+  * Links: O Método, A Dupla, Portfólio, Aplicação
+
+================================================================================
+5. ESTILO DOS BOTÕES (UI Components)
+================================================================================
+
+BOTÃO PRIMÁRIO (CTA):
+- Background: #E9E4D0 (arteur-cream)
+- Texto: #0a0a0b (arteur-ink)
+- Padding: 1rem 2rem
+- Border-radius: NENHUM (0) - design quadrado/filosófico
+- Font-size: 0.75rem
+- Letter-spacing: 0.2em
+- Text-transform: uppercase
+- Hover: background #ffffff, translateX(4px)
+- Transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1)
+
+BOTÃO SECUNDÁRIO (Ghost):
+- Border: 1px solid rgba(255, 255, 255, 0.2)
+- Background: transparent
+- Texto: #ffffff
+- Hover: border #ffffff
+
+NAVEGAÇÃO (Links):
+- Cor: rgba(255, 255, 255, 0.5)
+- Hover: #ffffff
+- Font-size: 0.65rem
+- Letter-spacing: 0.3em
+- Text-transform: uppercase
+- Underline animado (linha branca que expande)
+
+================================================================================
+6. CSS VARIABLES DE DESIGN TOKENS
+================================================================================
+
+Definidas em src/styles/theme.css:
+
+--hero-font-display: 'Cormorant Garamond', 'Georgia', serif;
+--hero-font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+
+--cta-primary-bg: #E9E4D0;
+--cta-primary-hover: #ffffff;
+--cta-primary-text: #0a0a0b;
+
+================================================================================
+7. TAMANHOS DE TELA (Breakpoints)
+================================================================================
+
+O projeto usa media queries customizadas além do Tailwind:
+
+- md: 768px
+- lg: 1024px  
+- xl: 1280px
+- 2xl: 1536px
+
+O CSS usa clamp() para sizing responsivo:
+- clamp(min, preferred, max)
+
+================================================================================
+8. ANIMAÇÕES & MOTION
+================================================================================
+
+Biblioteca: motion/react (Framer Motion)
+
+Curvas de easing usadas:
+- ease: [0.16, 1, 0.3, 1]  (curva "suave" customizada)
+- ease: [0.22, 1, 0.36, 1] (outra versão)
+
+Scroll animations:
+- viewport={{ once: true, margin: "-10%" }}
+- whileInView com thresholds
+
+Page transitions:
+- AnimatePresence para modais/menus
+
+================================================================================
+FIM DO ARTEUR DNA
+================================================================================
