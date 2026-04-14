@@ -3,23 +3,13 @@
    Aesthetic: Light Luxury, Clean, High-Contrast Graphite
    ─────────────────────────────────────────────────────────────────────────── */
 
-.arteur-footer,
-body {
+.arteur-footer {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-html {
-  font-size: 16px;
-}
-
-body {
-  margin: 0;
-}
-
 .arteur-footer {
-  all: unset;
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -39,9 +29,6 @@ body {
   transform: translateX(-50%);
   font-family: var(--hero-font-display, serif);
   font-size: clamp(6rem, 25vw, 40rem);
-  max-width: 90%;
-  width: auto;
-  height: auto;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.035);
   line-height: 0.8;
@@ -80,6 +67,7 @@ body {
 .arteur-footer__logo {
   height: 2.8rem;
   width: auto;
+  max-width: 100%;
   margin-bottom: 2rem;
 }
 
@@ -125,7 +113,7 @@ body {
   font-weight: 500;
   text-decoration: none;
   color: #444444;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, padding-left 0.3s ease;
   letter-spacing: 0.05em;
 }
 
@@ -166,6 +154,7 @@ body {
 
 .arteur-footer__labels {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 
